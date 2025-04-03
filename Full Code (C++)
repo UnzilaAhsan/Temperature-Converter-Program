@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+
+float celsiusToFahrenheit(float Celsius)
+{
+    return (Celsius * 9.0f / 5.0f) + 32.0f;
+}
+
+float kelvinToFahrenheit(float kelvin)
+{
+    return (kelvin - 273.15f) * 9.0f / 5.0f + 32.0f;
+}
+
+float fahrenheitToCelsius(float F)
+{
+    return (F - 32.0f) * 5.0f / 9.0f;  
+}
+
+float kelvinToCelsius(float K)
+{
+    return K - 273.15f;  
+}
+
+float celsiusToKelvin(float C) 
+{
+    return C + 273.15f;
+}
+
+float fahrenheitToKelvin(float F)
+{
+    return (F - 32.0f) * 5.0f / 9.0f + 273.15f;
+}
+
+int main() {
+    char choice;
+    float temperature;
+    do {
+        cout << "\t\t\t---Temperature Unit Convertor---\n";
+        cout << "Enter temperature: ";
+        cin >> temperature;
+
+        cout << "Choose unit of your temperature or press 0 to exit program\n";
+        cout << "c. Celcius\nk. Kelvin\nf.Fahrenheit\n";
+        cin >> choice;
+        switch (choice)
+        {
+        case 'c':
+        case 'C':
+        {
+            cout << "In Fahrenheit: " << celsiusToFahrenheit(temperature) << "\n";
+            cout << "In Kelvin: " << celsiusToKelvin(temperature) << "\n";
+            break;
+        }
+        case 'K':
+        case 'k':
+        {
+            cout << "In Fahrenheit: " << kelvinToFahrenheit(temperature) << "\n";
+            cout << "In Celsius: " << kelvinToCelsius(temperature) << "\n";
+            break;
+        }
+        case 'F':
+        case 'f':
+        {
+            cout << "In Celsius: " << fahrenheitToCelsius(temperature) << "\n";
+            cout << "In Kelvin: " << fahrenheitToKelvin(temperature) << "\n";
+            break;
+        }        
+        default: cout << "Invalid choice! Try again.\n";
+        }
+    } while (choice != '0');
+    cout << "Exiting Program, come back again :)\n";
+
+    return 0;
+}
